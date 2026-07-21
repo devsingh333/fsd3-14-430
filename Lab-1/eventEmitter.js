@@ -10,18 +10,25 @@ const sayHi = (name) =>{
 
 task.on('greet',sayHi);
 
+task.emit('greet',"rahul");
+
 task.on('greet', ()=>{
     console.log("loggedOut")
 });
 
-task.once('greet',()=>{
-    console.log("system started...");
+// task.once('greet',()=>{
+//     console.log("system started...");
     
-});
+// });
 
-task.off('greet',(name)=>{
-    console.log(`system is shutting down... ${name}`);
-});
+task.off('greet',sayHi);
 
 task.emit('greet','Aman');
+// task.off('greet',sayHi)
 task.emit('greet','manager');
+
+// task.once('exit',(name)=>{
+//     console.log(`system stopped by ${name}`);  
+// });
+
+// task.emit('exit',"devil");
