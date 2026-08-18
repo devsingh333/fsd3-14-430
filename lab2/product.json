@@ -4,5 +4,11 @@
     "name": "HP Laptop",
     "price": 47000,
     "qty": 3
+  },
+  {
+    "id": 122,
+    "name": "dell",
+    "price": 49999,
+    "qty": 3
   }
 ]
