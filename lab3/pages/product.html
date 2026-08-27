@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>STUDS — Latest Football Boots</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f6f8;
+            color: #111;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            height: 72px;
+            background: #0b0b0b;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: #b7ff00;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #b7ff00;
+        }
+
+        .cart {
+            background: #b7ff00;
+            color: #000;
+            padding: 10px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 430px;
+            background:
+                linear-gradient(90deg, rgba(0,0,0,.9), rgba(0,0,0,.25)),
+                url("https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=1800&q=85");
+            background-size: cover;
+            background-position: center;
+            color: white;
+            display: flex;
+            align-items: center;
+            padding: 60px 8%;
+        }
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #b7ff00;
+            color: #000;
+            padding: 7px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 6vw, 78px);
+            line-height: .95;
+            margin-bottom: 22px;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            color: #ddd;
+            font-size: 17px;
+            line-height: 1.6;
+            margin-bottom: 28px;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            background: white;
+            color: black;
+            padding: 14px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 900;
+        }
+
+        .hero-btn:hover {
+            background: #b7ff00;
+        }
+
+        /* MAIN */
+
+        main {
+            max-width: 1400px;
+            margin: auto;
+            padding: 60px 6%;
+        }
+
+        .section-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+        }
+
+        .section-title span {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* FILTERS */
+
+        .filters {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 35px;
+        }
+
+        .filter-btn {
+            border: 1px solid #ddd;
+            background: white;
+            padding: 10px 18px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #111;
+            color: white;
+        }
+
+        .search-box {
+            margin-left: auto;
+        }
+
+        .search-box input {
+            padding: 11px 18px;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            outline: none;
+            width: 220px;
+        }
+
+        /* PRODUCTS */
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+        .product {
+            background: white;
+            border-radius: 18px;
+            overflow: hidden;
+            transition: .25s;
+            position: relative;
+        }
+
+        .product:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 35px rgba(0,0,0,.12);
+        }
+
+        .product-image {
+            height: 230px;
+            background: #f0f1f3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: .3s;
+        }
+
+        .product:hover img {
+            transform: scale(1.07);
+        }
+
+        .badge {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            background: #b7ff00;
+            color: black;
+            font-size: 11px;
+            font-weight: 900;
+            padding: 6px 10px;
+            border-radius: 5px;
+        }
+
+        .heart {
+            position: absolute;
+            right: 15px;
+            top: 13px;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            border: none;
+            background: white;
+            cursor: pointer;
+            font-size: 17px;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .brand {
+            color: #777;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .product h3 {
+            margin: 6px 0;
+            font-size: 18px;
+        }
+
+        .description {
+            color: #777;
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+
+        .rating {
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+
+        .stars {
+            color: #f4b400;
+        }
+
+        .bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .price {
+            font-size: 20px;
+            font-weight: 900;
+        }
+
+        .add {
+            border: none;
+            background: #111;
+            color: white;
+            padding: 9px 13px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .add:hover {
+            background: #b7ff00;
+            color: black;
+        }
+
+        /* TRENDING */
+
+        .trending {
+            margin-top: 70px;
+            background: #111;
+            color: white;
+            padding: 45px;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .trending h2 {
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+        .trending p {
+            color: #bbb;
+            max-width: 650px;
+            line-height: 1.6;
+        }
+
+        .trending strong {
+            color: #b7ff00;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #080808;
+            color: white;
+            padding: 45px 7%;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        footer h3 {
+            margin-bottom: 12px;
+        }
+
+        footer p,
+        footer a {
+            color: #999;
+            font-size: 14px;
+            line-height: 1.8;
+            text-decoration: none;
+        }
+
+        .copyright {
+            border-top: 1px solid #222;
+            margin-top: 30px;
+            padding-top: 20px;
+            color: #666;
+            font-size: 12px;
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width: 1100px) {
+            .products {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media(max-width: 800px) {
+
+            nav ul {
+                display: none;
+            }
+
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .search-box {
+                margin-left: 0;
+                width: 100%;
+            }
+
+            .search-box input {
+                width: 100%;
+            }
+
+            .trending {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media(max-width: 520px) {
+
+            .products {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                min-height: 500px;
+            }
+
+            main {
+                padding: 40px 5%;
+            }
+
+            .section-title {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+    <div class="logo">STUD<span>S</span></div>
+
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#boots">Football Boots</a></li>
+        <li><a href="#trending">Trending</a></li>
+        <li><a href="#about">About</a></li>
+    </ul>
+
+    <div class="cart">
+        🛒 Cart <span id="cartCount">0</span>
+    </div>
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <span class="tag">2026 FOOTBALL COLLECTION</span>
+
+        <h1>
+            Built to<br>
+            Attack.
+        </h1>
+
+        <p>
+            Discover the latest football boots built for speed,
+            control, precision and explosive movement.
+        </p>
+
+        <a href="#boots" class="hero-btn">
+            SHOP THE COLLECTION →
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- PRODUCTS -->
+
+<main id="boots">
+
+    <div class="section-title">
+        <div>
+            <h2>Latest Studs</h2>
+            <span>Updated for the 2026 football season</span>
+        </div>
+    </div>
+
+
+    <!-- FILTERS -->
+
+    <div class="filters">
+
+        <button class="filter-btn active" onclick="filterProducts('all', this)">
+            All
+        </button>
+
+        <button class="filter-btn" onclick="filterProducts('nike', this)">
+            Nike
+        </button>
+
+        <button class="filter-btn" onclick="filterProducts('adidas', this)">
+            adidas
+        </button>
+
+        <button class="filter-btn" onclick="filterProducts('speed', this)">
+            Speed
+        </button>
+
+        <button class="filter-btn" onclick="filterProducts('control', this)">
+            Control
+        </button>
+
+        <div class="search-box">
+            <input
+                type="text"
+                id="search"
+                placeholder="Search boots..."
+                onkeyup="searchProducts()"
+            >
+        </div>
+
+    </div>
+
+
+    <!-- PRODUCT GRID -->
+
+    <div class="products" id="productGrid">
+
+
+        <!-- PRODUCT 1 -->
+
+        <div class="product" data-brand="nike" data-type="speed">
+
+            <div class="product-image">
+
+                <span class="badge">HOT</span>
+
+                <button class="heart">♡</button>
+
+                <img
+                    src="https://images.unsplash.com/photo-1511886929837-354d827aae26?auto=format&fit=crop&w=800&q=80"
+                    alt="Nike Mercurial Football Boots"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <span class="brand">Nike</span>
+
+                <h3>Mercurial Vapor</h3>
+
+                <p class="description">
+                    Lightweight speed boots for explosive acceleration.
+                </p>
+
+                <div class="rating">
+                    <span class="stars">★★★★★</span>
+                    4.6
+                </div>
+
+                <div class="bottom">
+
+                    <span class="price">₹18,055</span>
+
+                    <button class="add" onclick="addToCart()">
+                        + Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 2 -->
+
+        <div class="product" data-brand="nike" data-type="control">
+
+            <div class="product-image">
+
+                <span class="badge">NEW</span>
+
+                <button class="heart">♡</button>
+
+                <img
+                    src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80"
+                    alt="Nike Phantom Football Boots"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <span class="brand">Nike</span>
+
+                <h3>Phantom 6 Elite</h3>
+
+                <p class="description">
+                    Designed for precise touch and accurate finishing.
+                </p>
+
+                <div class="rating">
+                    <span class="stars">★★★★★</span>
+                    4.7
+                </div>
+
+                <div class="bottom">
+
+                    <span class="price">₹25,793</span>
+
+                    <button class="add" onclick="addToCart()">
+                        + Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 3 -->
+
+        <div class="product" data-brand="adidas" data-type="control">
+
+            <div class="product-image">
+
+                <span class="badge">BESTSELLER</span>
+
+                <button class="heart">♡</button>
+
+                <img
+                    src="https://images.unsplash.com/photo-1556906781-9a412961c28c?auto=format&fit=crop&w=800&q=80"
+                    alt="Adidas Predator Football Boots"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <span class="brand">adidas</span>
+
+                <h3>Predator Elite</h3>
+
+                <p class="description">
+                    Maximum grip and precision for attacking players.
+                </p>
+
+                <div class="rating">
+                    <span class="stars">★★★★★</span>
+                    4.6
+                </div>
+
+                <div class="bottom">
+
+                    <span class="price">₹29,853</span>
+
+                    <button class="add" onclick="addToCart()">
+                        + Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 4 -->
+
+        <div class="product" data-brand="nike" data-type="speed">
+
+            <div class="product-image">
+
+                <span class="badge">POPULAR</span>
+
+                <button class="heart">♡</button>
+
+                <img
+                    src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=800&q=80"
+                    alt="Nike Mercurial Football Cleats"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <span class="brand">Nike</span>
+
+                <h3>Mercurial Vapor 16</h3>
+
+                <p class="description">
+                    Responsive traction made for rapid direction changes.
+                </p>
+
+                <div class="rating">
+                    <span class="stars">★★★★★</span>
+                    4.5
+                </div>
+
+                <div class="bottom">
+
+                    <span class="price">₹22,218</span>
+
+                    <button class="add" onclick="addToCart()">
+                        + Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 5 -->
+
+        <div class="product" data-brand="adidas" data-type="speed">
+
+            <div class="product-image">
+
+                <span class="badge">FAST</span>
+
+                <button class="heart">♡</button>
+
+                <img
+                    src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=800&q=80"
+                    alt="Adidas Speed Football Boots"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <span class="brand">adidas</span>
+
+                <h3>F50 Elite</h3>
+
+                <p class="description">
+                    Ultra-light construction focused on pure pace.
+                </p>
+
+                <div class="rating">
+                    <span class="stars">★★★★★</span>
+                    4.5
+                </div>
+
+                <div class="bottom">
+
+                    <span class="price">₹27,500</span>
+
+                    <button class="add" onclick="addToCart()">
+                        + Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 6 -->
+
+        <div class="product" data-brand="adidas" data-type="control">
+
+            <div class="product-image">
+
+                <span class="badge">ELITE</span>
+
+                <button class="heart">♡</button>
+
+                <img
+                    src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=800&q=80"
+                    alt="Adidas Predator Elite Boots"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <span class="brand">adidas</span>
+
+                <h3>Predator Elite FG</h3>
+
+                <p class="description">
+                    High-grip upper engineered for controlled shooting.
+                </p>
+
+                <div class="rating">
+                    <span class="stars">★★★★★</span>
+                    4.6
+                </div>
+
+                <div class="bottom">
+
+                    <span class="price">₹30,190</span>
+
+                    <button class="add" onclick="addToCart()">
+                        + Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- TRENDING SECTION -->
+
+    <section class="trending" id="trending">
+
+        <div>
+
+            <h2>What's trending?</h2>
+
+            <p>
+                <strong>Pink football boots</strong> became one of the
+                biggest boot trends around the 2026 World Cup, with
+                elite players across major brands wearing vibrant
+                pink colorways.
+            </p>
+
+        </div>
+
+        <div style="font-size:55px;">
+            ⚡
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer id="about">
+
+    <div class="footer-content">
+
+        <div>
+            <h3>STUDS</h3>
+            <p>
+                Modern football boots for modern players.
+            </p>
+        </div>
+
+        <div>
+            <h3>Shop</h3>
+            <p><a href="#boots">Football Boots</a></p>
+            <p><a href="#">Nike</a></p>
+            <p><a href="#">adidas</a></p>
+        </div>
+
+        <div>
+            <h3>Support</h3>
+            <p><a href="#">Size Guide</a></p>
+            <p><a href="#">Shipping</a></p>
+            <p><a href="#">Returns</a></p>
+        </div>
+
+    </div>
+
+    <div class="copyright">
+        © 2026 STUDS. All rights reserved.
+    </div>
+
+</footer>
+
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+    let cartCount = 0;
+
+
+    function addToCart() {
+
+        cartCount++;
+
+        document.getElementById("cartCount").textContent = cartCount;
+
+    }
+
+
+    function filterProducts(category, button) {
+
+        const products = document.querySelectorAll(".product");
+
+        const buttons = document.querySelectorAll(".filter-btn");
+
+        buttons.forEach(btn => {
+            btn.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+
+        products.forEach(product => {
+
+            const brand = product.dataset.brand;
+            const type = product.dataset.type;
+
+            if (
+                category === "all" ||
+                category === brand ||
+                category === type
+            ) {
+
+                product.style.display = "block";
+
+            } else {
+
+                product.style.display = "none";
+
+            }
+
+        });
+
+    }
+
+
+    function searchProducts() {
+
+        const search =
+            document.getElementById("search").value.toLowerCase();
+
+        const products =
+            document.querySelectorAll(".product");
+
+
+        products.forEach(product => {
+
+            const text =
+                product.innerText.toLowerCase();
+
+            if (text.includes(search)) {
+
+                product.style.display = "block";
+
+            } else {
+
+                product.style.display = "none";
+
+            }
+
+        });
+
+    }
+
+
+    /* HEART BUTTON */
+
+    document.querySelectorAll(".heart").forEach(button => {
+
+        button.addEventListener("click", function() {
+
+            if (this.textContent === "♡") {
+
+                this.textContent = "♥";
+
+            } else {
+
+                this.textContent = "♡";
+
+            }
+
+        });
+
+    });
+
+</script>
+
+</body>
+</html>

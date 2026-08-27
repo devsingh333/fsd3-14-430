@@ -1,0 +1,285 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact - STUDS</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            color: #111;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            background: #111;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #b7ff00;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #b7ff00;
+        }
+
+        /* CONTACT */
+
+        .contact {
+            max-width: 700px;
+            margin: 70px auto;
+            padding: 40px;
+        }
+
+        .contact h1 {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        .contact h1 span {
+            color: #6fa800;
+        }
+
+        .contact > p {
+            color: #666;
+            font-size: 17px;
+            margin-bottom: 30px;
+        }
+
+        form {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: #111;
+        }
+
+        textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #111;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #b7ff00;
+            color: #111;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #111;
+            color: #aaa;
+            text-align: center;
+            padding: 25px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+            }
+
+            .contact {
+                padding: 25px;
+                margin: 40px auto;
+            }
+
+            .contact h1 {
+                font-size: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <div class="logo">
+            STUD<span>S</span>
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="/home">Home</a>
+            </li>
+
+            <li>
+                <a href="/product">Products</a>
+            </li>
+
+            <li>
+                <a href="/about">About</a>
+            </li>
+
+            <li>
+                <a href="/contact">Contact</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- CONTACT -->
+
+    <section class="contact">
+
+        <h1>
+            Contact <span>Us</span>
+        </h1>
+
+        <p>
+            Have a question about our football boots?
+            Send us a message and we'll get back to you.
+        </p>
+
+
+        <form onsubmit="sendMessage(event)">
+
+            <label for="name">
+                Name
+            </label>
+
+            <input
+                type="text"
+                id="name"
+                placeholder="Enter your name"
+                required
+            >
+
+
+            <label for="email">
+                Email
+            </label>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                required
+            >
+
+
+            <label for="message">
+                Message
+            </label>
+
+            <textarea
+                id="message"
+                placeholder="Write your message..."
+                required
+            ></textarea>
+
+
+            <button type="submit">
+                Send Message
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+        © 2026 STUDS. All Rights Reserved.
+    </footer>
+
+
+    <script>
+
+        function sendMessage(event) {
+
+            event.preventDefault();
+
+            alert("Message sent successfully!");
+
+            event.target.reset();
+
+        }
+
+    </script>
+
+</body>
+
+</html>
+```
