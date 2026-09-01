@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "brand": "Apple",
+    "model": "iPhone 17 Pro",
+    "price": 129999,
+    "display": "6.3-inch OLED",
+    "processor": "A19 Pro",
+    "ram": "8GB",
+    "storage": "256GB",
+    "camera": "48MP Triple Camera",
+    "battery": "3500mAh"
+  },
+  {
+    "id": 2,
+    "brand": "Samsung",
+    "model": "Galaxy S26 Ultra",
+    "price": 139999,
+    "display": "6.9-inch AMOLED",
+    "processor": "Snapdragon 8 Elite",
+    "ram": "12GB",
+    "storage": "256GB",
+    "camera": "200MP Quad Camera",
+    "battery": "5000mAh"
+  },
+  {
+    "id": 3,
+    "brand": "Google",
+    "model": "Pixel 10 Pro",
+    "price": 109999,
+    "display": "6.3-inch OLED",
+    "processor": "Google Tensor G5",
+    "ram": "16GB",
+    "storage": "256GB",
+    "camera": "50MP Triple Camera",
+    "battery": "4870mAh"
+  },
+  {
+    "id": 4,
+    "brand": "OnePlus",
+    "model": "OnePlus 14",
+    "price": 69999,
+    "display": "6.7-inch AMOLED",
+    "processor": "Snapdragon 8 Elite",
+    "ram": "12GB",
+    "storage": "256GB",
+    "camera": "50MP Triple Camera",
+    "battery": "6000mAh"
+  },
+  {
+    "id": 5,
+    "brand": "Xiaomi",
+    "model": "Xiaomi 16 Pro",
+    "price": 64999,
+    "display": "6.73-inch AMOLED",
+    "processor": "Snapdragon 8 Elite",
+    "ram": "12GB",
+    "storage": "256GB",
+    "camera": "50MP Triple Camera",
+    "battery": "6100mAh"
+  },
+  {
+    "id": 6,
+    "brand": "Nothing",
+    "model": "Phone (4)",
+    "price": 49999,
+    "display": "6.7-inch OLED",
+    "processor": "Snapdragon 8s Gen 4",
+    "ram": "12GB",
+    "storage": "256GB",
+    "camera": "50MP Dual Camera",
+    "battery": "5000mAh"
+  },
+  {
+    "id": 7,
+    "brand": "Motorola",
+    "model": "Edge 70 Ultra",
+    "price": 59999,
+    "display": "6.8-inch pOLED",
+    "processor": "Snapdragon 8s Gen 4",
+    "ram": "12GB",
+    "storage": "512GB",
+    "camera": "50MP Triple Camera",
+    "battery": "5200mAh"
+  },
+  {
+    "id": 8,
+    "brand": "Realme",
+    "model": "GT 8 Pro",
+    "price": 54999,
+    "display": "6.7-inch AMOLED",
+    "processor": "Snapdragon 8 Elite",
+    "ram": "16GB",
+    "storage": "512GB",
+    "camera": "50MP Triple Camera",
+    "battery": "7000mAh"
+  },
+  {
+    "id": 9,
+    "brand": "Vivo",
+    "model": "X300 Pro",
+    "price": 79999,
+    "display": "6.78-inch AMOLED",
+    "processor": "MediaTek Dimensity 9500",
+    "ram": "16GB",
+    "storage": "512GB",
+    "camera": "200MP Triple Camera",
+    "battery": "6500mAh"
+  },
+  {
+    "id": 10,
+    "brand": "OPPO",
+    "model": "Find X9 Pro",
+    "price": 84999,
+    "display": "6.78-inch AMOLED",
+    "processor": "MediaTek Dimensity 9500",
+    "ram": "16GB",
+    "storage": "512GB",
+    "camera": "200MP Triple Camera",
+    "battery": "6200mAh"
+  }
+]

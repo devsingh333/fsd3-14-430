@@ -1,0 +1,5 @@
+### ChatGPT
+
+ChatGPT is an AI-powered conversational assistant developed by OpenAI. It can understand natural language and generate human-like responses to questions and instructions. It can help users with tasks such as learning, writing, coding, brainstorming, summarizing information, and solving problems.
+
+ChatGPT uses advanced language models to understand the context of a conversation and produce relevant responses. It is designed to make interacting with AI simple and accessible through natural conversation.
