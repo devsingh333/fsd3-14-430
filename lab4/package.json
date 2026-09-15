@@ -1,0 +1,14 @@
+{
+  "name": "lab4",
+  "version": "1.0.0",
+  "description": "1. create project folder\r 2. right click on project folder and select open in integrated terminal\r 3. type in terminal `npm init -y` press enter\r 4. open package.json file from project folder\r 5. update type as `modeule` in package.json\r 6. type in terminal `npm i nodemon -D` to install nodemon, which restarts server while file changes. -D",
+  "main": "index.js",
+  "scripts": {
+    "start":"node app.js",
+    "dev":"nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
