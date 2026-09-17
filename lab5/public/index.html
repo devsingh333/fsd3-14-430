@@ -1,0 +1,678 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NutriFresh | Healthy Food</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f7fbf5;
+            color: #263326;
+        }
+
+        /* Navbar */
+        header {
+            width: 100%;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #2e7d32;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            margin-left: 30px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #2e7d32;
+        }
+
+        .nav-btn {
+            background-color: #2e7d32;
+            color: white !important;
+            padding: 10px 18px;
+            border-radius: 25px;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 600px;
+            padding: 80px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .hero-text {
+            max-width: 550px;
+        }
+
+        .hero-text span {
+            color: #66bb6a;
+            font-weight: bold;
+        }
+
+        .hero-text h1 {
+            font-size: 60px;
+            line-height: 1.1;
+            margin: 20px 0;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            text-decoration: none;
+            background-color: #2e7d32;
+            color: white;
+            padding: 15px 28px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .hero-btn:hover {
+            background-color: #1b5e20;
+            transform: translateY(-2px);
+        }
+
+        .hero-image img {
+            width: 500px;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 15px 40px rgba(46, 125, 50, 0.2);
+        }
+
+        /* Categories */
+        .categories {
+            padding: 70px 8%;
+            background-color: white;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            color: #777;
+            margin-bottom: 40px;
+        }
+
+        .category-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .category-card {
+            padding: 30px 20px;
+            border-radius: 15px;
+            background-color: #f7fbf5;
+            transition: 0.3s;
+        }
+
+        .category-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .category-icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .category-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .category-card p {
+            color: #777;
+            line-height: 1.5;
+        }
+
+        /* Food Section */
+        .foods {
+            padding: 80px 8%;
+        }
+
+        .food-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .food-card {
+            background-color: white;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: 0.3s;
+        }
+
+        .food-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .food-card img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+        }
+
+        .food-content {
+            padding: 22px;
+        }
+
+        .food-content h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .food-content p {
+            color: #777;
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        .food-info {
+            display: flex;
+            justify-content: space-between;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+
+        .price {
+            color: #2e7d32;
+            font-size: 20px;
+        }
+
+        .order-btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            background-color: #2e7d32;
+            color: white;
+            border-radius: 25px;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .order-btn:hover {
+            background-color: #1b5e20;
+        }
+
+        /* Why Us */
+        .why-us {
+            padding: 80px 8%;
+            background-color: #eaf5e7;
+            text-align: center;
+        }
+
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .benefit {
+            background-color: white;
+            padding: 30px 20px;
+            border-radius: 15px;
+        }
+
+        .benefit h3 {
+            margin: 15px 0 10px;
+        }
+
+        .benefit p {
+            color: #777;
+        }
+
+        /* Contact */
+        .contact {
+            padding: 80px 8%;
+            text-align: center;
+            background-color: white;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 30px auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input,
+        textarea {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 15px;
+            outline: none;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: #2e7d32;
+        }
+
+        form button {
+            padding: 14px;
+            background-color: #2e7d32;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1f3321;
+            color: white;
+            padding: 45px 8%;
+            text-align: center;
+        }
+
+        footer h2 {
+            margin-bottom: 10px;
+        }
+
+        footer p {
+            color: #c5d2c5;
+            margin: 8px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 45px;
+            }
+
+            .hero-image img {
+                width: 350px;
+                height: 350px;
+            }
+
+            .category-container,
+            .benefits {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .food-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .category-container,
+            .benefits {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding-top: 50px;
+            }
+
+            .hero-text h1 {
+                font-size: 38px;
+            }
+
+            .hero-image img {
+                width: 280px;
+                height: 280px;
+            }
+
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header>
+    <div class="logo">🥗 NutriFresh</div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="enquiry.html">Enquiry</a>
+        <a href="#foods" class="nav-btn">Order Now</a>
+    </nav>
+</header>
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+
+        <div class="hero-text">
+            <span>FRESH • HEALTHY • DELICIOUS</span>
+
+            <h1>
+                Eat Healthy.<br>
+                Live Better.
+            </h1>
+
+            <p>
+                Discover delicious and nutritious meals made with
+                fresh ingredients. Take care of your body without
+                compromising on taste.
+            </p>
+
+            <a href="#foods" class="hero-btn">
+                Explore Foods →
+            </a>
+        </div>
+
+        <div class="hero-image">
+            <img
+                src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd"
+                alt="Healthy salad"
+            >
+        </div>
+
+    </section>
+
+
+    <!-- Categories -->
+    <section class="categories">
+
+        <h2 class="section-title">Explore Categories</h2>
+
+        <p class="section-subtitle">
+            Something healthy for every craving
+        </p>
+
+        <div class="category-container">
+
+            <div class="category-card">
+                <div class="category-icon">🥦</div>
+                <h3>Vegetables</h3>
+                <p>Fresh vegetables packed with essential nutrients.</p>
+            </div>
+
+            <div class="category-card">
+                <div class="category-icon">🍎</div>
+                <h3>Fresh Fruits</h3>
+                <p>Natural fruits rich in vitamins and antioxidants.</p>
+            </div>
+
+            <div class="category-card">
+                <div class="category-icon">🥗</div>
+                <h3>Salads</h3>
+                <p>Fresh and delicious salads for a healthy meal.</p>
+            </div>
+
+            <div class="category-card">
+                <div class="category-icon">🥜</div>
+                <h3>Healthy Snacks</h3>
+                <p>Nutritious snacks to keep you energized.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Food Section -->
+    <section class="foods" id="foods">
+
+        <h2 class="section-title">Popular Meals</h2>
+
+        <p class="section-subtitle">
+            Delicious meals made with healthy ingredients
+        </p>
+
+        <div class="food-container">
+
+            <!-- Food 1 -->
+            <div class="food-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd"
+                    alt="Green Power Salad"
+                >
+
+                <div class="food-content">
+
+                    <h3>🥗 Green Power Salad</h3>
+
+                    <p>
+                        Lettuce, cucumber, tomatoes, avocado and
+                        nutritious seeds.
+                    </p>
+
+                    <div class="food-info">
+                        <span>320 kcal</span>
+                        <span class="price">₹199</span>
+                    </div>
+
+                    <button class="order-btn">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Food 2 -->
+            <div class="food-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1547592180-85f173990554"
+                    alt="Protein Bowl"
+                >
+
+                <div class="food-content">
+
+                    <h3>🍲 Protein Bowl</h3>
+
+                    <p>
+                        Rice, vegetables, beans and protein-rich
+                        ingredients for a balanced meal.
+                    </p>
+
+                    <div class="food-info">
+                        <span>450 kcal</span>
+                        <span class="price">₹249</span>
+                    </div>
+
+                    <button class="order-btn">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Food 3 -->
+            <div class="food-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea"
+                    alt="Fresh Fruit Bowl"
+                >
+
+                <div class="food-content">
+
+                    <h3>🍓 Fresh Fruit Bowl</h3>
+
+                    <p>
+                        A refreshing combination of seasonal fruits
+                        packed with natural nutrients.
+                    </p>
+
+                    <div class="food-info">
+                        <span>220 kcal</span>
+                        <span class="price">₹149</span>
+                    </div>
+
+                    <button class="order-btn">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Why Choose Us -->
+    <section class="why-us" id="why">
+
+        <h2 class="section-title">Why Choose NutriFresh?</h2>
+
+        <p class="section-subtitle">
+            Healthy food without the boring part
+        </p>
+
+        <div class="benefits">
+
+            <div class="benefit">
+                <div class="category-icon">🌱</div>
+                <h3>Fresh Ingredients</h3>
+                <p>We use fresh and quality ingredients.</p>
+            </div>
+
+            <div class="benefit">
+                <div class="category-icon">💪</div>
+                <h3>High Nutrition</h3>
+                <p>Meals designed with nutrition in mind.</p>
+            </div>
+
+            <div class="benefit">
+                <div class="category-icon">🚚</div>
+                <h3>Fast Delivery</h3>
+                <p>Get your healthy meal delivered quickly.</p>
+            </div>
+
+            <div class="benefit">
+                <div class="category-icon">❤️</div>
+                <h3>Made With Care</h3>
+                <p>Prepared with hygiene and attention.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+
+        <h2 class="section-title">Get In Touch</h2>
+
+        <p class="section-subtitle">
+            Have a question? We'd love to hear from you.
+        </p>
+
+        <form>
+
+            <input
+                type="text"
+                placeholder="Your Name"
+                required
+            >
+
+            <input
+                type="email"
+                placeholder="Your Email"
+                required
+            >
+
+            <textarea
+                rows="5"
+                placeholder="Your Message"
+                required
+            ></textarea>
+
+            <button type="submit">
+                Send Message
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <h2>🥗 NutriFresh</h2>
+
+        <p>
+            Healthy food for a healthier lifestyle.
+        </p>
+
+        <p>
+            © 2026 NutriFresh. All rights reserved.
+        </p>
+
+    </footer>
+
+</body>
+</html>
