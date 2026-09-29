@@ -10,11 +10,11 @@ const b1 = {
 function Book(){
   return(
       <div>
-        <img src="https://m.media-amazon.com/images/I/61aYZnnMaHL._AC_UL480_FMwebp_QL65_.jpg" alt="Design Pattern React JS"></img>
+        <img src={b1.picUrl} alt={b1.bname}></img>
         <h1>Lets Us React</h1>
-        <h2>Price : 999</h2>
-        <h3>Quantity : 3</h3>
-        <h4>Rating : 5.0</h4>
+        <h2>Price : {b1.price}</h2>
+        <h3>Quantity : {b1.quantity}</h3>
+        <h4>Rating : {b1.rating}</h4>
       </div> 
   );
 }
