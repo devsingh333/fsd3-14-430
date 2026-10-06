@@ -47,3 +47,4 @@
         3. inline css - in this, we use 2 curly brackets with style atrribute and all the css property mus be single word(it should be textAlign ... not text-align)
 
 
+App.jsx should have minimum code
